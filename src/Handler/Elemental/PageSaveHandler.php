@@ -32,7 +32,7 @@ class PageSaveHandler extends SaveHandler
         }
 
         $record = $this->getRecordFromContext($context);
-        if (!$record->hasExtension(ElementalAreasExtension::class)) {
+        if (!$record || !$record->hasExtension(ElementalAreasExtension::class)) {
             return parent::createSnapshot($context);
         }
         $changedElements = [];
